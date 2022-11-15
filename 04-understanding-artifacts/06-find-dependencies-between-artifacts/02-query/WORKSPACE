@@ -1,0 +1,33 @@
+load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+maybe(
+    name = "googletest",
+    repo_rule = http_archive,
+    sha256 = "81964fe578e9bd7c94dfdb09c8e4d6e6759e19967e397dbea48d1c10e45d0df2",
+    strip_prefix = "googletest-release-1.12.1",
+    urls = ["https://github.com/google/googletest/archive/refs/tags/release-1.12.1.tar.gz"],
+)
+
+maybe(
+    name = "com_google_absl",
+    repo_rule = http_archive,
+    sha256 = "1a1745b5ee81392f5ea4371a4ca41e55d446eeaee122903b2eaffbd8a3b67a2b",
+    strip_prefix = "abseil-cpp-01cc6567cff77738e416a7ddc17de2d435a780ce",
+    urls = ["https://github.com/abseil/abseil-cpp/archive/01cc6567cff77738e416a7ddc17de2d435a780ce.zip"],  # 2022-06-21T19:28:27Z
+)
+
+maybe(
+    name = "com_googlesource_code_re2",
+    repo_rule = http_archive,
+    sha256 = "0a890c2aa0bb05b2ce906a15efb520d0f5ad4c7d37b8db959c43772802991887",
+    strip_prefix = "re2-a427f10b9fb4622dd6d8643032600aa1b50fbd12",
+    urls = ["https://github.com/google/re2/archive/a427f10b9fb4622dd6d8643032600aa1b50fbd12.zip"],  # 2022-06-09
+)
+
+maybe(
+    name = "bazel_skylib",
+    repo_rule = http_archive,
+    sha256 = "f7be3474d42aae265405a592bb7da8e171919d74c16f082a5457840f06054728",
+    urls = ["https://github.com/bazelbuild/bazel-skylib/releases/download/1.2.1/bazel-skylib-1.2.1.tar.gz"],
+)
