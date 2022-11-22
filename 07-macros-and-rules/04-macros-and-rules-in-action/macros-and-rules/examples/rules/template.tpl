@@ -1,0 +1,1 @@
+Hello! I'm you trainer and my name is {NAME} {SURNAME}
