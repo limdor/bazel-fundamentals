@@ -1,0 +1,8 @@
+# Deactivate repository cache
+# build --repository_cache=""
+
+# Set custom folder for repository_cache
+# build --repository_cache=~/bazel-repository-cache/
+
+# Enable disk cache
+# build --disk_cache=~/bazel-disk-cache/
