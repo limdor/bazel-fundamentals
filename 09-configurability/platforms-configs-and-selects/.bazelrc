@@ -1,0 +1,7 @@
+build --verbose_failures
+
+# The old way to access platforms was with @bazel_tools//platforms
+# However this should not be used and the @platforms repository should
+# be used instead
+# To make sure that the old way is not used, this flag can be set
+build --incompatible_use_platforms_repo_for_constraints

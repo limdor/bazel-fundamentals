@@ -1,0 +1,19 @@
+###################################
+# Fetch all third party libraries #
+###################################
+
+load("//third_party:third_party.bzl", "load_third_party_libraries")
+
+load_third_party_libraries()
+
+#########################################
+# Set up required third party libraries #
+#########################################
+
+load("//third_party:transitive_dependencies.bzl", "load_transitive_dependencies")
+
+load_transitive_dependencies()
+
+register_toolchains(
+    "//toolchain:my_linux_toolchain",
+)
