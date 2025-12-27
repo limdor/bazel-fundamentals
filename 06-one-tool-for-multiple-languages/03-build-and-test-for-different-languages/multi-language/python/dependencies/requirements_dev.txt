@@ -1,17 +1,3 @@
 pytest==6.2.5
 pytest-pylint==0.18.0
 pylint==2.11.1
-
-# This example has been tested with Ubuntu 20.04 that comes with Python 3.8 and with
-# Ubuntu 22.04 that comes with Python 3.10.
-# There is a problem with rules_python 0.4.0 that if it resolves to a wheel that is Python
-# version specific, it will throw an error due to not finding the metadata.
-# Adding some additional restrictions to the transitive dependencies resolves this issue
-setuptools<66
-platformdirs<4
-attrs<24
-typing_extensions<4.13
-packaging<24.0
-iniconfig<2.1.0
-lazy_object_proxy<1.12
-pluggy<1.6
