@@ -1,0 +1,34 @@
+name: Build and Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.1
+      - name: Setup Bazel environment
+        uses: bazel-contrib/setup-bazel@0.16.0
+        with:
+          # Avoid downloading Bazel every time.
+          bazelisk-cache: true
+          # Store build cache per workflow.
+          disk-cache: ${{ github.workflow }}
+          # Share repository cache between workflows.
+          repository-cache: true
+      - name: Setting up Your Development Environment -> Building Your First Target
+        working-directory: ./03-setting-up-your-development-environment/07-building-your-first-target/first-target/
+        run: bazel build //... && bazel run //:hello_world
+      - name: Understanding Artifacts -> External Dependencies
+        working-directory: ./04-understanding-artifacts/05-external-dependencies/02-after/
+        run: bazel test //:gtest_test
+      - name: One Tool for Multiple Languages -> Build and Test for Different Languages
+        working-directory: ./06-one-tool-for-multiple-languages/03-build-and-test-for-different-languages/multi-language/
+        run: bazel build //...
