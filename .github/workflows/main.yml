@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6.0.1
       - name: Setup Bazel environment
-        uses: bazel-contrib/setup-bazel@0.16.0
+        uses: bazel-contrib/setup-bazel@0.17.0
         with:
           # Avoid downloading Bazel every time.
           bazelisk-cache: true
@@ -23,6 +23,9 @@ jobs:
           disk-cache: ${{ github.workflow }}
           # Share repository cache between workflows.
           repository-cache: true
+      - name: Setting up Your Development Environment -> Bazel Environment -> Bazelisk Demo
+        working-directory: ./03-setting-up-your-development-environment/02-bazel-environment/bazelisk-demo/
+        run: bazel version
       - name: Setting up Your Development Environment -> Building Your First Target
         working-directory: ./03-setting-up-your-development-environment/07-building-your-first-target/first-target/
         run: bazel build //... && bazel run //:hello_world
